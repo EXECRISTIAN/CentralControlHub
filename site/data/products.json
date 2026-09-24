@@ -1,0 +1,22 @@
+[
+  {
+    "id": "producto-1",
+    "name": "Producto de ejemplo 1",
+    "price": 15000,
+    "image": "assets/img/placeholder.svg",
+    "variants": ["S", "M", "L", "XL"]
+  },
+  {
+    "id": "producto-2",
+    "name": "Producto de ejemplo 2",
+    "price": 22000,
+    "image": "assets/img/placeholder.svg",
+    "variants": ["Negro", "Blanco"]
+  },
+  {
+    "id": "producto-3",
+    "name": "Producto de ejemplo 3",
+    "price": 9500,
+    "image": "assets/img/placeholder.svg"
+  }
+]

@@ -1,0 +1,136 @@
+/* Paleta equivalente a los colores globales de Astra (astglobalcolor0..8).
+   Ajustar los valores reales cuando tengamos la base de datos. */
+:root {
+  --c0: #046bd2; /* primario / separadores */
+  --c1: #045cb4; /* hover */
+  --c2: #1e293b; /* títulos */
+  --c3: #334155; /* texto */
+  --c4: #f0f5fa; /* fondo suave */
+  --c5: #ffffff; /* blanco */
+  --c6: #d1d5db; /* bordes */
+  --c7: #111111; /* oscuro */
+  --wa: #25d366;
+  --radius: 4px;
+  --maxw: 1200px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: Inter, system-ui, sans-serif;
+  color: var(--c3);
+  background: var(--c5);
+  line-height: 1.6;
+}
+h1, h2, h3 { color: var(--c2); line-height: 1.2; margin: 0 0 .6em; }
+img { max-width: 100%; display: block; }
+a { color: var(--c0); }
+.container { max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+.center-text { text-align: center; }
+
+.btn {
+  display: inline-block; background: var(--c0); color: var(--c5);
+  padding: 14px 28px; border: 0; border-radius: var(--radius);
+  font: inherit; font-weight: 600; text-decoration: none; cursor: pointer;
+  transition: background .3s;
+}
+.btn:hover { background: var(--c1); }
+.btn-wa { background: var(--wa); width: 100%; }
+.btn-wa:hover { background: #1ebe5a; }
+
+.divider { display: block; width: 80px; height: 4px; background: var(--c0); margin: 5px 0 20px; }
+.divider.center { margin-left: auto; margin-right: auto; }
+.divider.alt { background: var(--c1); }
+
+/* Header */
+.site-header { position: sticky; top: 0; z-index: 10; background: var(--c5); box-shadow: 0 1px 0 var(--c6); }
+.header-inner { display: flex; align-items: center; gap: 24px; height: 70px; }
+.logo { font-weight: 700; font-size: 1.5rem; color: var(--c2); text-decoration: none; }
+.nav { display: flex; gap: 20px; margin-left: auto; }
+.nav a { color: var(--c3); text-decoration: none; font-weight: 600; }
+.nav a:hover { color: var(--c0); }
+.cart-btn { position: relative; background: none; border: 0; font-size: 1.4rem; cursor: pointer; }
+.cart-count {
+  position: absolute; top: -6px; right: -10px; background: var(--c0); color: var(--c5);
+  font-size: .75rem; border-radius: 999px; min-width: 20px; padding: 0 5px; text-align: center;
+}
+
+/* Hero: fondo fijo + degradado c0 -> c7 */
+.hero {
+  padding: 15% 0; text-align: center; color: var(--c5);
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--c0) 60%, transparent) -50%, color-mix(in srgb, var(--c7) 85%, transparent) 100%),
+    url("../img/banner-04.jpg") bottom center / cover no-repeat fixed,
+    var(--c7);
+}
+.hero h1 { color: var(--c5); font-size: clamp(2rem, 5vw, 3.5rem); }
+.hero p { max-width: 600px; margin: 0 auto 30px; }
+
+/* Split 50/50 */
+.split { display: grid; grid-template-columns: 1fr 1fr; background: var(--c4); }
+.split-text { background: var(--c5); padding: 5%; display: flex; flex-direction: column; justify-content: center; }
+.split-img {
+  min-height: 360px;
+  background: var(--c7) url("../img/slide-image.jpg") top right / cover no-repeat;
+}
+
+/* Productos */
+.products { padding: 100px 0; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; margin-top: 40px; }
+.card {
+  background: var(--c4); border: 1px solid #3333330a; border-radius: var(--radius);
+  padding: 20px; display: flex; flex-direction: column;
+}
+.card img { aspect-ratio: 1; object-fit: cover; border-radius: var(--radius); margin-bottom: 16px; background: var(--c6); }
+.card h3 { font-size: 1.1rem; margin-bottom: 4px; }
+.card .price { font-weight: 700; color: var(--c2); margin-bottom: 12px; }
+.card select { width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid var(--c6); border-radius: var(--radius); font: inherit; }
+.card .btn { margin-top: auto; }
+
+/* Franja */
+.band {
+  padding: 80px 20px; display: flex; justify-content: center;
+  background: linear-gradient(color-mix(in srgb, var(--c7) 45%, transparent), color-mix(in srgb, var(--c7) 45%, transparent)),
+    url("../img/banner-05.jpg") center / cover no-repeat fixed, var(--c2);
+}
+.band-card { background: var(--c4); max-width: 400px; width: 100%; padding: 60px 30px; text-align: center; }
+
+.site-footer { background: var(--c7); color: var(--c6); padding: 24px 0; text-align: center; font-size: .9rem; }
+
+/* Carrito */
+.overlay { position: fixed; inset: 0; background: #0006; z-index: 20; }
+.cart {
+  position: fixed; top: 0; right: 0; height: 100%; width: min(400px, 100%); z-index: 30;
+  background: var(--c5); display: flex; flex-direction: column;
+  transform: translateX(100%); transition: transform .3s;
+}
+.cart.open { transform: none; }
+.cart-head { display: flex; justify-content: space-between; align-items: center; padding: 20px; border-bottom: 1px solid var(--c6); }
+.cart-head h3 { margin: 0; }
+.icon-btn { background: none; border: 0; font-size: 1.2rem; cursor: pointer; }
+.cart-items { list-style: none; margin: 0; padding: 0 20px; flex: 1; overflow-y: auto; }
+.cart-items li { display: flex; gap: 10px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--c4); }
+.cart-items .info { flex: 1; font-size: .95rem; }
+.cart-items .info small { display: block; color: #64748b; }
+.qty { display: flex; align-items: center; gap: 6px; }
+.qty button { width: 28px; height: 28px; border: 1px solid var(--c6); background: var(--c5); border-radius: var(--radius); cursor: pointer; }
+.empty { padding: 30px 0; text-align: center; color: #64748b; }
+.cart-foot { padding: 20px; border-top: 1px solid var(--c6); display: grid; gap: 12px; }
+.field { display: grid; gap: 4px; font-size: .9rem; }
+.field input, .field textarea { padding: 8px; border: 1px solid var(--c6); border-radius: var(--radius); font: inherit; }
+.total { font-size: 1.1rem; }
+.link-btn { background: none; border: 0; color: #64748b; text-decoration: underline; cursor: pointer; font: inherit; }
+
+/* Responsive (breakpoints de Elementor: 1024 / 767) */
+@media (max-width: 1024px) {
+  .hero { padding: 150px 0; background-attachment: scroll; }
+  .band { background-attachment: scroll; }
+  .split { grid-template-columns: 1fr; }
+}
+@media (max-width: 767px) {
+  .hero { padding: 80px 0; }
+  .nav { display: none; }
+  .cart-btn { margin-left: auto; }
+  .products { padding: 60px 0; }
+}

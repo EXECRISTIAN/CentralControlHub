@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EXE | Tienda</title>
+  <meta name="description" content="Catálogo EXE. Armá tu pedido y envialo por WhatsApp.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="logo">EXE</a>
+      <nav class="nav">
+        <a href="#nosotros">Nosotros</a>
+        <a href="#productos">Productos</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <button class="cart-btn" id="cartOpen" aria-label="Abrir carrito">
+        🛒 <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero: replica del contenedor 79b68a0 (post-43.css) -->
+    <section class="hero">
+      <div class="container">
+        <h1>Bienvenido a EXE</h1>
+        <p>Elegí tus productos, agregalos al carrito y envianos tu pedido por WhatsApp.</p>
+        <a href="#productos" class="btn">Ver productos</a>
+      </div>
+    </section>
+
+    <!-- Bloque 2 columnas: b4b1dc6 / d8389aa -->
+    <section class="split" id="nosotros">
+      <div class="split-text">
+        <span class="divider"></span>
+        <h2>Quiénes somos</h2>
+        <p>Texto institucional pendiente de migrar desde la base de datos de WordPress.</p>
+      </div>
+      <div class="split-img"></div>
+    </section>
+
+    <!-- Grilla de productos: tarjetas 1a8460d... -->
+    <section class="products" id="productos">
+      <div class="container">
+        <span class="divider center"></span>
+        <h2 class="center-text">Productos</h2>
+        <div class="grid" id="productGrid"></div>
+      </div>
+    </section>
+
+    <!-- Franja con redes: 25eeec2 / 8d6e746 -->
+    <section class="band" id="contacto">
+      <div class="band-card">
+        <span class="divider center alt"></span>
+        <h2>Contacto</h2>
+        <p>Escribinos por WhatsApp y te respondemos a la brevedad.</p>
+        <a class="btn" id="waDirect" target="_blank" rel="noopener">Hablar por WhatsApp</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">© <span id="year"></span> EXE · exe.com.ar</div>
+  </footer>
+
+  <!-- Carrito -->
+  <div class="overlay" id="overlay" hidden></div>
+  <aside class="cart" id="cart" aria-hidden="true">
+    <div class="cart-head">
+      <h3>Tu pedido</h3>
+      <button class="icon-btn" id="cartClose" aria-label="Cerrar">✕</button>
+    </div>
+    <ul class="cart-items" id="cartItems"></ul>
+    <div class="cart-foot">
+      <label class="field">Tu nombre (opcional)
+        <input id="customerName" type="text" autocomplete="name">
+      </label>
+      <label class="field">Nota (opcional)
+        <textarea id="customerNote" rows="2"></textarea>
+      </label>
+      <div class="total">Total: <strong id="cartTotal">$0</strong></div>
+      <button class="btn btn-wa" id="sendWa">Enviar pedido por WhatsApp</button>
+      <button class="link-btn" id="cartClear">Vaciar carrito</button>
+    </div>
+  </aside>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
